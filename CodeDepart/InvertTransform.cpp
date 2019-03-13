@@ -13,4 +13,8 @@
 void InvertTransform::transform(const Chunk_iterator& c, AbsAudioFile& outFile) const
 { 
    // A Completer...
+	for (int i = 0; i < outFile.getChunkSize; i++) {
+		c->size();
+		
+	}
 }

@@ -11,7 +11,13 @@
 
 void RepeatTransform::transform(const Chunk_iterator& c, AbsAudioFile& outFile) const
 {
-    // A completer...
+    //dupliquer des segments audio
+	for (int i = 0; i < m_nRepetitions; i++) {
+		//int size = outFile.getChunkSize;
+		//int numberChunks = outFile.getNumberChunks;
+		outFile.addChunk(c);
+		//? is it enough????? 
+	}
 }
 
 size_t RepeatTransform::getNRepetitions(void)
