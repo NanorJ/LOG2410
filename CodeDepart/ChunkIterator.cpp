@@ -1,6 +1,7 @@
 #include "ChunkIterator.h"
 #include "AudioFile.h"
 
+
 void Chunk_iterator_base::inc(void) 
 {
 	// Avancer d'un Chunk 
@@ -85,4 +86,9 @@ Chunk_iterator_base::Chunk_iterator_base(class AbsAudioFile& audioFile, size_t p
 Chunk_iterator_base::Chunk_iterator_base(const Chunk_iterator_base & mdd) 
 	: m_chunkIdx(mdd.m_chunkIdx), m_audioFile(mdd.m_audioFile), m_currentChunk(mdd.m_currentChunk)
 {
+}
+
+void swap(Chunk_iterator_base & lhs, Chunk_iterator_base & rhs)
+{
+	
 }

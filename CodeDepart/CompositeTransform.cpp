@@ -11,7 +11,7 @@
 
 CompositeTransform::CompositeTransform(const CompositeTransform & mdd)
 {
-   // A Completer...
+	m_transforms=mdd.m_transforms;//should be the same no? 
 }
 
 // Cloner la transformation composite et ses commandes enfant
