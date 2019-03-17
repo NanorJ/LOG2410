@@ -15,14 +15,25 @@ void InvertTransform::transform(const Chunk_iterator& c, AbsAudioFile& outFile) 
 { 
 	//comme c'est un operateur constant ne px pas modifier --> faire une copie 
    	int sizeChunk = c->size();
-	char* tmpChunk = c->get();//copie de notre chunk 
+	char* tempChunk;
+	tempChunk= c->get();//copie de notre chunk 
 	
 	//vecteur vide
-	std::vector<AbsAudioFile> temp;
+	std::vector<char> temp;
+	//resize notre temp 
+	temp.resize(sizeChunk);
 
-	temp.begin;
-	temp.end;
-	//swap();
+	//parcourir notre vecteur de chunk size
+	for (int i = 0; i < sizeChunk; i++) {
+		//inversion du chunk et remplir le temporaire
+		temp[i] = tempChunk[sizeChunk - 1 - i];
+	}
+	//creation d'objet de chunk iterator (prend un audiofile et le size en paramètre)
+	Chunk_iterator chunkIterator(outFile, outFile.getNumberChunks());
+	//creation d'un chunk avec les données inversées du vecteur
 
-	outFile.addChunk();
+	*chunkIterator = Chunk(temp.size(), temp.data());//c'est un get() de notre vecteur 
+	//utilise chunk_iterator pour utiliser addchunk 
+	//ajout du chunk dans le outfile
+	outFile.addChunk(chunkIterator);
 }

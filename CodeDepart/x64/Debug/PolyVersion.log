@@ -1,6 +1,2 @@
-﻿  InvertTransform.cpp
-c:\users\nanno\desktop\tp4_log2410\log2410\codedepart\inverttransform.cpp(17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\nanno\desktop\tp4_log2410\log2410\codedepart\inverttransform.cpp(21): error C2065: 'vector': undeclared identifier
-c:\users\nanno\desktop\tp4_log2410\log2410\codedepart\inverttransform.cpp(21): error C2275: 'AbsAudioFile': illegal use of this type as an expression
-  c:\users\nanno\desktop\tp4_log2410\log2410\codedepart\absaudiofile.h(15): note: see declaration of 'AbsAudioFile'
-c:\users\nanno\desktop\tp4_log2410\log2410\codedepart\inverttransform.cpp(21): error C2065: 'temp': undeclared identifier
+﻿  CompositeTransform.cpp
+c:\users\nanno\desktop\tp4_log2410\log2410\codedepart\compositetransform.cpp(30): error C3867: 'AbsTransform::clone': non-standard syntax; use '&' to create a pointer to member

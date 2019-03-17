@@ -12,11 +12,9 @@
 void RepeatTransform::transform(const Chunk_iterator& c, AbsAudioFile& outFile) const
 {
     //dupliquer des segments audio
+	//ajouter n repetitions de fois le chunk dans le audioFile
 	for (int i = 0; i < m_nRepetitions; i++) {
-		//int size = outFile.getChunkSize;
-		//int numberChunks = outFile.getNumberChunks;
 		outFile.addChunk(c);
-		//? is it enough????? 
 	}
 }
 
