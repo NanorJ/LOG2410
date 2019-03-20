@@ -9,7 +9,13 @@
 #include "AbsAudioFile.h"
 #include "ChunkIterator.h"
 
-CompositeTransform::CompositeTransform(const CompositeTransform & mdd) :AbsTransform(mdd){}
+
+CompositeTransform::CompositeTransform(const CompositeTransform & mdd) {
+//:AbsTransform(mdd)
+	for (auto it=mdd.begin(); it!=mdd.end(); it++) {
+		addChild(*it);
+	}
+}
 
 // Cloner la transformation composite et ses commandes enfant
 CompositeTransform * CompositeTransform::clone(void) const
@@ -23,31 +29,32 @@ CompositeTransform * CompositeTransform::clone(void) const
 	//compositeTransform->m_transforms = CompositeTransform.m_transforms ;
 	//return compositeTransform ;
 	////return nullptr;
-	CompositeTransform* compositeTransform = new CompositeTransform;
+	//CompositeTransform* compositeTransform = new CompositeTransform;
 	// CompositeTransform = *compositeTransform;
 
-	for (auto i=0; m_transforms.size();i++)
-		compositeTransform->addChild(m_transforms.[i]->clone());
+	//for (auto i=0; m_transforms.size(1);i++)
+		//compositeTransform->addChild(m_transforms.[i]->clone());
 
-	return compositeTransform;
+	return (new CompositeTransform(*this));
 }
 
 // Executer les transformations enfant
 void CompositeTransform::transform(const Chunk_iterator& c, AbsAudioFile& outFile) const
 {
-	for (auto i =0 ;i< m_transforms.size();i++)
-		m_transforms[i]->transform(c, outFile);
+	for (int i =0 ;i< m_transforms.size();i++)
+		m_transforms[i].get()->transform(c, outFile);
 
 }
 
 void CompositeTransform::addChild(const AbsTransform& t)
 { 
-	//std::unique_ptr<AbsTransform> value = std::unique_ptr<AbsTransform>(t.clone());
-	m_transforms.push_back(std::unique_ptr<AbsTransform>(t.clone()));
+//std::unique_ptr<AbsTransform> value = std::unique_ptr<AbsTransform>(t.clone());
+	m_transforms.push_back((TransformPtr)t.clone());//changed the type
 	
 }
 
 void CompositeTransform::removeChild(TransformIterator_const transfIt)
 {
-	m_transforms.pop_back();
+	//erase instead of pop
+	m_transforms.erase(transfIt);
 }

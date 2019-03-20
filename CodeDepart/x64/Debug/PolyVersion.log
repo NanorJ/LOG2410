@@ -1,2 +1,2 @@
 ﻿  CompositeTransform.cpp
-c:\users\nanno\desktop\tp4_log2410\log2410\codedepart\compositetransform.cpp(30): error C3867: 'AbsTransform::clone': non-standard syntax; use '&' to create a pointer to member
+  PolyVersion.vcxproj -> C:\Users\nanno\Desktop\TP4_log2410\LOG2410\CodeDepart\x64\Debug\PolyVersion.exe
