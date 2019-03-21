@@ -11,7 +11,6 @@
 
 
 CompositeTransform::CompositeTransform(const CompositeTransform & mdd) {
-//:AbsTransform(mdd)
 	for (auto it=mdd.begin(); it!=mdd.end(); it++) {
 		addChild(*it);
 	}
@@ -20,21 +19,7 @@ CompositeTransform::CompositeTransform(const CompositeTransform & mdd) {
 // Cloner la transformation composite et ses commandes enfant
 CompositeTransform * CompositeTransform::clone(void) const
 {
-	////creer un nouv objet 
-	//CompositeTransform *compositeTransform;// = new CompositeTransform;
-	////clonage avec le constructeur copie du nouveau objet
-	//CompositeTransform CompositeTransform = *compositeTransform;//=*compositeTransform;
-	////retour du nouveau objet
-	////compositeTransform->m_transforms = CompositeTransform.m_transforms;
-	//compositeTransform->m_transforms = CompositeTransform.m_transforms ;
-	//return compositeTransform ;
-	////return nullptr;
-	//CompositeTransform* compositeTransform = new CompositeTransform;
-	// CompositeTransform = *compositeTransform;
-
-	//for (auto i=0; m_transforms.size(1);i++)
-		//compositeTransform->addChild(m_transforms.[i]->clone());
-
+	
 	return (new CompositeTransform(*this));
 }
 
@@ -48,13 +33,11 @@ void CompositeTransform::transform(const Chunk_iterator& c, AbsAudioFile& outFil
 
 void CompositeTransform::addChild(const AbsTransform& t)
 { 
-//std::unique_ptr<AbsTransform> value = std::unique_ptr<AbsTransform>(t.clone());
-	m_transforms.push_back((TransformPtr)t.clone());//changed the type
+	m_transforms.push_back((TransformPtr)t.clone());
 	
 }
 
 void CompositeTransform::removeChild(TransformIterator_const transfIt)
 {
-	//erase instead of pop
 	m_transforms.erase(transfIt);
 }
