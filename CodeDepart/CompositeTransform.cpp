@@ -20,7 +20,7 @@ CompositeTransform::CompositeTransform(const CompositeTransform & mdd) {
 CompositeTransform * CompositeTransform::clone(void) const
 {
 	
-	return (new CompositeTransform(*this));
+	return (new CompositeTransform(*this)); 
 }
 
 // Executer les transformations enfant
